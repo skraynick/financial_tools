@@ -4,8 +4,9 @@ from matplotlib.ticker import FuncFormatter
 """
 Considers the price of houses and takes into account of mortgage, carry costs and costs.
 """
-def mortgage_amortization(principal, annual_rate, total_years):
 
+
+def mortgage_amortization(principal, annual_rate, total_years):
     monthly_rate = annual_rate / 100 / 12
     num_payments = total_years * 12
     monthly_payment = (principal * monthly_rate) / (1 - (1 + monthly_rate) ** -num_payments)
@@ -27,7 +28,6 @@ def mortgage_amortization(principal, annual_rate, total_years):
 def future_house_value_with_amortization(present_value, annual_appreciation, years, mortgage_principal,
                                          total_amortization_years, annual_tax=0, mortgage_interest_rate=0,
                                          repair_percentage=0):
-
     mortgage_balances, monthly_payment = mortgage_amortization(mortgage_principal, mortgage_interest_rate,
                                                                total_amortization_years)
 
@@ -45,7 +45,6 @@ def future_house_value_with_amortization(present_value, annual_appreciation, yea
 
 
 def calculate_cagr(start_value, end_value, years):
-
     cagr = (end_value / start_value) ** (1 / years) - 1
     return cagr * 100
 
@@ -64,7 +63,6 @@ yearly_fv, mortgage_balances, monthly_payment = future_house_value_with_amortiza
     current_value, appreciation, years, mortgage_principal, total_amortization_years, annual_tax,
     mortgage_interest_rate, repair_percentage
 )
-
 
 print("Year | House Value | Mortgage Balance")
 print("-------------------------------------")
